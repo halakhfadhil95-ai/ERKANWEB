@@ -1,0 +1,3939 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ERKAN CHEF&reg; | Restoran / Restaurant</title>
+  <meta name="description" content="ERKAN CHEF&reg;, T&#252;rk mutfa&#287;&#305; / T&#252;rkische K&#252;che | Sebze / Gem&#252;se | Pizza | Falafel &amp; Co. Vegi-friendly ve HALAL&reg;. Aktuelle &#214;ffnungszeiten 11-22." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bg: #0b0b0b;
+      --bg-deep: #000000;
+      --surface: #f2f2f2;
+      --surface-strong: #ffffff;
+      --text: #111111;
+      --muted: #6b6b6b;
+      --accent: #e0232e;
+      --accent-strong: #b5161f;
+      --accent-soft: #f2d6d8;
+      --accent-warm: #ff4d4f;
+      --accent-cool: #8a8a8a;
+      --outline: rgba(0, 0, 0, 0.12);
+      --shadow: 0 36px 70px rgba(0, 0, 0, 0.35);
+      --shadow-soft: 0 16px 32px rgba(0, 0, 0, 0.2);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --font-body: "Manrope", "Segoe UI", sans-serif;
+      --font-display: "Bodoni Moda", "Times New Roman", serif;
+      --ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+      --menu-tabs-top: 120px;
+      --menu-tabs-offset: 220px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: var(--font-body);
+      color: var(--text);
+      background:
+        radial-gradient(1200px 800px at 10% -10%, rgba(224, 35, 46, 0.22), transparent 60%),
+        radial-gradient(900px 700px at 110% 20%, rgba(255, 255, 255, 0.18), transparent 60%),
+        radial-gradient(900px 800px at 50% 120%, rgba(90, 90, 90, 0.55), transparent 60%),
+        linear-gradient(150deg, #0b0b0b 0%, #1b1b1b 52%, #0b0b0b 100%);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; }
+    img { max-width: 100%; display: block; }
+
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .bg-grid {
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+      background-size: 40px 40px;
+      opacity: 0.18;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .bg-beams {
+      position: fixed;
+      inset: -30% -20%;
+      background-image: repeating-linear-gradient(115deg, rgba(255, 255, 255, 0.06) 0, rgba(255, 255, 255, 0.06) 1px, transparent 1px, transparent 160px);
+      opacity: 0.25;
+      transform: rotate(-4deg);
+      pointer-events: none;
+      z-index: 0;
+      animation: drift 28s linear infinite;
+    }
+
+    .aurora {
+      position: fixed;
+      inset: -45% -30%;
+      filter: blur(90px);
+      opacity: 0.6;
+      mix-blend-mode: screen;
+      pointer-events: none;
+      z-index: 0;
+      animation: aurora 22s ease-in-out infinite;
+    }
+
+    .aurora-1 {
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 60, 70, 0.4), transparent 60%),
+        radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.2), transparent 55%);
+    }
+
+    .aurora-2 {
+      background:
+        radial-gradient(circle at 60% 70%, rgba(120, 120, 120, 0.5), transparent 60%),
+        radial-gradient(circle at 15% 45%, rgba(224, 35, 46, 0.3), transparent 55%);
+      animation-duration: 26s;
+    }
+
+    .blob {
+      position: fixed;
+      border-radius: 999px;
+      filter: blur(24px);
+      opacity: 0.65;
+      z-index: 0;
+      pointer-events: none;
+      animation: float 18s ease-in-out infinite;
+    }
+
+    .blob-1 {
+      width: 520px;
+      height: 520px;
+      right: -140px;
+      top: -180px;
+      background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0));
+    }
+
+    .blob-2 {
+      width: 600px;
+      height: 600px;
+      left: -220px;
+      bottom: -260px;
+      background: radial-gradient(circle at 70% 30%, rgba(90, 90, 90, 0.65), rgba(90, 90, 90, 0));
+      animation-duration: 22s;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 18px;
+      z-index: 5;
+      display: flex;
+      justify-content: center;
+      padding: 0 20px;
+    }
+
+    .header-inner {
+      width: min(1360px, 100%);
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 16px;
+      text-align: left;
+      background: #0b0b0b;
+      color: #f2f2f2;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 999px;
+      padding: 12px 20px;
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(14px);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      white-space: nowrap;
+      justify-self: start;
+    }
+
+    .brand-mark {
+      width: clamp(90px, 11vw, 130px);
+      aspect-ratio: 693 / 459;
+      height: auto;
+      border-radius: 14px;
+      background: #0b0b0b;
+      border: none;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(32, 18, 12, 0.25);
+    }
+
+    .brand-logo {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+    }
+
+    .brand-text {
+      display: grid;
+      line-height: 1.1;
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      color: var(--surface-strong);
+    }
+
+    .brand-role {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-self: end;
+    }
+
+    .site-nav {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+        align-items: center;
+      justify-self: center;
+      gap: 4px;
+      height: 32px;
+      padding: 0 6px;
+      background: rgba(242, 242, 242, 0.9);
+      border-radius: 999px;
+      border: 1px solid var(--outline);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .site-nav::-webkit-scrollbar { display: none; }
+
+    .nav-link {
+      height: 100%;
+      padding: 0 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      transition: color 0.2s ease, background 0.2s ease;
+      white-space: nowrap;
+      position: relative;
+      z-index: 1;
+    }
+
+    .nav-link.active {
+      color: var(--text);
+      font-weight: 700;
+    }
+
+    .nav-link:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.75);
+    }
+
+    .nav-indicator {
+      position: absolute;
+      height: 2px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+      bottom: 2px;
+      left: 0;
+      transform: translateX(0);
+      transition: transform 0.35s var(--ease), width 0.35s var(--ease);
+      z-index: 0;
+      box-shadow: 0 6px 16px rgba(60, 32, 18, 0.35);
+    }
+
+    .nav-cta {
+      padding: 9px 14px;
+      border-radius: 999px;
+      background: linear-gradient(120deg, var(--accent), var(--accent-strong));
+      color: #fff;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 12px 24px rgba(32, 18, 12, 0.25);
+      white-space: nowrap;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+    }
+
+    .nav-cta::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.35), transparent);
+      transform: translateX(-120%);
+      transition: transform 0.6s var(--ease);
+    }
+
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(32, 18, 12, 0.3);
+    }
+
+    .nav-cta:hover::after { transform: translateX(0); }
+
+    body[data-lang="tr"] [data-lang="de"],
+    body[data-lang="de"] [data-lang="tr"] {
+      display: none !important;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      gap: 4px;
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid var(--outline);
+      background: rgba(242, 242, 242, 0.9);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+    }
+
+    .lang-btn {
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 5px 9px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.2s var(--ease), color 0.2s var(--ease), transform 0.2s var(--ease);
+    }
+
+    .lang-btn.is-active {
+      background: linear-gradient(120deg, var(--accent), var(--accent-strong));
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(32, 18, 12, 0.2);
+    }
+
+    .lang-btn:hover { transform: translateY(-1px); }
+
+    .page {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 80px 20px 90px;
+      display: grid;
+      gap: 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    section { scroll-margin-top: 130px; }
+
+    .section-card {
+      position: relative;
+      isolation: isolate;
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.94)) padding-box,
+        linear-gradient(130deg, rgba(224, 35, 46, 0.45), rgba(255, 255, 255, 0.3)) border-box;
+      border: 1px solid transparent;
+      border-radius: var(--radius-xl);
+      padding: clamp(26px, 4vw, 52px);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    #menu.section-card { overflow: visible; }
+
+    .section-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(900px 400px at 0% 0%, rgba(255, 255, 255, 0.6), transparent 60%);
+      opacity: 0.55;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .section-card > * { position: relative; z-index: 1; }
+
+    h1, h2, h3, h4 {
+      font-family: var(--font-display);
+      margin: 0 0 12px;
+      letter-spacing: 0.2px;
+    }
+
+    h1 { font-size: clamp(34px, 4vw, 54px); }
+    h2 { font-size: clamp(26px, 3vw, 38px); }
+    h3 { font-size: 20px; }
+
+    a {
+      margin: 0 0 12px;
+      line-height: 1.7;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid var(--outline);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 12px;
+      box-shadow: 0 10px 24px rgba(32, 18, 12, 0.12);
+    }
+
+    .pulse-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 0 rgba(224, 35, 46, 0.55);
+      animation: pulse 2.4s ease infinite;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(90deg, var(--accent), var(--accent-warm), var(--accent));
+      background-size: 200% 100%;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      animation: sheen 6s ease infinite;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 18px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      border: 1px solid transparent;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(255, 255, 255, 0.4), transparent);
+      transform: translateX(-120%);
+      transition: transform 0.6s var(--ease);
+    }
+
+    .btn.primary {
+      background: linear-gradient(120deg, var(--accent), var(--accent-strong));
+      color: #fff;
+      box-shadow: 0 12px 26px rgba(32, 18, 12, 0.2);
+    }
+
+    .btn.ghost {
+      background: rgba(242, 242, 242, 0.9);
+      border-color: var(--outline);
+      color: var(--text);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(32, 18, 12, 0.22);
+    }
+
+    .btn:hover::after { transform: translateX(0); }
+
+    .hero-stats {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    .stat {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--outline);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      display: grid;
+      gap: 4px;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+    }
+
+    .stat:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .stat-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .stat-value {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .stat-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-media {
+      position: relative;
+      isolation: isolate;
+      background:
+        linear-gradient(180deg, #ffffff, #f2f2f2) padding-box,
+        linear-gradient(130deg, rgba(224, 35, 46, 0.35), rgba(90, 90, 90, 0.35)) border-box;
+      border: 1px solid transparent;
+      border-radius: var(--radius-lg);
+      padding: 22px;
+      display: grid;
+      gap: 16px;
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(600px 220px at 100% 0%, rgba(224, 35, 46, 0.18), transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .hero-media > * { position: relative; z-index: 1; }
+
+    .media-figure {
+      height: 220px;
+      border-radius: var(--radius-md);
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.8), transparent 55%),
+        linear-gradient(135deg, #6b3521, #2a1b14);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.25);
+    }
+
+    .media-figure::before {
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      right: -40px;
+      top: -30px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent 70%);
+    }
+
+    .media-overlay {
+      position: absolute;
+      inset: auto 14px 14px 14px;
+      display: grid;
+      gap: 4px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      background: linear-gradient(120deg, rgba(16, 11, 8, 0.8), rgba(16, 11, 8, 0.4));
+      color: #fff;
+      backdrop-filter: blur(6px);
+    }
+
+    .media-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .media-price {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent-warm);
+    }
+
+    .media-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    }
+
+    .media-card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--outline);
+      border-radius: var(--radius-md);
+      padding: 8px;
+      display: grid;
+      gap: 4px;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.45);
+    }
+
+    .media-title {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .media-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .media-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .chip-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .chip {
+      background: rgba(224, 35, 46, 0.16);
+      color: #4a2a18;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(224, 35, 46, 0.25);
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .section-head {
+      display: grid;
+      gap: 6px;
+      margin-bottom: 22px;
+    }
+
+    .menu-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 320px);
+      gap: 20px;
+      align-items: start;
+    }
+
+    .menu-cart {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid var(--outline);
+      border-radius: 26px;
+      padding: 18px;
+      box-shadow: var(--shadow-soft);
+      position: sticky;
+      top: 120px;
+    }
+
+    .menu-main {
+      display: grid;
+      gap: 18px;
+    }
+
+    .menu-header {
+      display: grid;
+      gap: 14px;
+    }
+
+    .menu-topbar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-radius: 18px;
+      border: 1px solid var(--outline);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .menu-search {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--outline);
+      background: #fff;
+    }
+
+    .menu-search-icon {
+      width: 16px;
+      height: 16px;
+      color: var(--muted);
+      flex: 0 0 auto;
+    }
+
+    .menu-search-icon path { fill: currentColor; }
+
+    .menu-search input {
+      border: none;
+      outline: none;
+      flex: 1;
+      font-size: 14px;
+      font-family: inherit;
+      background: transparent;
+      color: var(--text);
+    }
+
+    .menu-top-chip {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--outline);
+      background: rgba(242, 242, 242, 0.9);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .menu-tabs {
+      position: sticky;
+      top: var(--menu-tabs-top);
+      z-index: 4;
+      display: flex;
+      gap: 12px;
+      overflow-x: auto;
+      padding: 8px;
+      border-radius: 22px;
+      border: 1px solid var(--outline);
+      background: rgba(242, 242, 242, 0.92);
+      box-shadow: var(--shadow-soft);
+      backdrop-filter: blur(10px);
+      scrollbar-width: none;
+    }
+
+    .menu-tabs::-webkit-scrollbar { display: none; }
+
+    .menu-search-empty {
+      display: none;
+      margin: 0;
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px dashed var(--outline);
+      background: rgba(242, 242, 242, 0.9);
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .menu-tab {
+      flex: 0 0 138px;
+      min-height: 92px;
+      padding: 8px;
+      border-radius: 18px;
+      border: 1px solid var(--outline);
+      background: #ffffff;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      gap: 8px;
+      justify-items: center;
+      align-content: center;
+      text-align: center;
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease), background 0.2s var(--ease);
+    }
+
+    .menu-tab-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 12px;
+      background: rgba(224, 35, 46, 0.12);
+      color: var(--accent-strong);
+      display: grid;
+      place-items: center;
+    }
+
+    .menu-tab-icon svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+
+    .menu-tab-label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .menu-tab.is-active,
+    .menu-tab:hover {
+      background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+      transform: translateY(-2px);
+      box-shadow: 0 18px 36px rgba(32, 18, 12, 0.18);
+    }
+
+    .menu-tab.is-active .menu-tab-label,
+    .menu-tab:hover .menu-tab-label {
+      color: #fff;
+    }
+
+    .menu-tab.is-active .menu-tab-icon,
+    .menu-tab:hover .menu-tab-icon {
+      background: rgba(255, 255, 255, 0.22);
+      color: #fff;
+    }
+
+    .order-section {
+      display: grid;
+      gap: 20px;
+      margin-top: 28px;
+    }
+
+    .menu-cart .order-section { margin-top: 0; }
+
+    .menu-cart .section-head { margin-bottom: 16px; }
+
+    .menu-cart .section-head h2 { font-size: 22px; }
+
+    .menu-cart .section-head a { font-size: 12px; }
+
+    .menu-cart .reservation-form { grid-template-columns: 1fr; }
+
+    .menu-cart .reservation-form .form-row { grid-column: 1 / -1; }
+
+    .order-summary {
+      display: grid;
+      gap: 14px;
+    }
+
+    .order-summary h3 {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 20px;
+    }
+
+    .order-summary-note {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .order-summary-list {
+      display: grid;
+      gap: 10px;
+      max-height: 360px;
+      overflow-y: auto;
+      padding-right: 4px;
+    }
+
+    .order-item {
+      background: rgba(242, 242, 242, 0.9);
+      border: 1px solid var(--outline);
+      border-radius: 16px;
+      padding: 10px 12px;
+      display: grid;
+      gap: 6px;
+    }
+
+    .order-item-main {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .order-item-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .order-item-total {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent-strong);
+      white-space: nowrap;
+    }
+
+    .order-item-unit {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .order-summary-total {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 10px;
+      border-top: 1px solid var(--outline);
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .order-confirm {
+      width: 100%;
+    }
+
+    .order-confirm:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      box-shadow: none;
+      transform: none;
+    }
+
+    .order-summary-foot {
+      margin: 0;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .order-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 30;
+    }
+
+    .order-modal.is-open { display: flex; }
+
+    .order-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(11, 11, 11, 0.6);
+      backdrop-filter: blur(4px);
+    }
+
+    .order-modal-card {
+      position: relative;
+      width: min(560px, 92vw);
+      max-height: 90vh;
+      overflow-y: auto;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+      z-index: 1;
+      display: grid;
+      gap: 14px;
+    }
+
+    .order-modal-close {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1px solid var(--outline);
+      background: #fff;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .order-modal-note {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .order-modal-summary {
+      display: grid;
+      gap: 10px;
+    }
+
+    .order-modal .reservation-form {
+      grid-template-columns: 1fr;
+    }
+
+    body.modal-open { overflow: hidden; }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 20px;
+    }
+
+    .panel {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--outline);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: grid;
+      gap: 10px;
+      box-shadow: 0 10px 20px rgba(18, 10, 6, 0.08);
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+    }
+
+    .panel:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .focus-list,
+    .chef-list {
+      margin: 0;
+      padding-left: 18px;
+      display: grid;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .feature-grid {
+      margin-top: 22px;
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .feature-card {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--outline);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: grid;
+      gap: 8px;
+      box-shadow: 0 10px 20px rgba(18, 10, 6, 0.08);
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .feature-title {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .marquee {
+      margin-top: 18px;
+      background: rgba(242, 242, 242, 0.9);
+      border: 1px solid var(--outline);
+      border-radius: 999px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .marquee::before,
+    .marquee::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 70px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    .marquee::before {
+      left: 0;
+      background: linear-gradient(90deg, rgba(242, 242, 242, 0.9), transparent);
+    }
+
+    .marquee::after {
+      right: 0;
+      background: linear-gradient(270deg, rgba(242, 242, 242, 0.9), transparent);
+    }
+
+    .marquee-track {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      width: max-content;
+      animation: marquee 22s linear infinite;
+    }
+
+    .marquee:hover .marquee-track { animation-play-state: paused; }
+
+    .marquee-item {
+      background: #ffffff;
+      border: 1px solid var(--outline);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0 20px;
+    }
+
+    .filter-btn {
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--outline);
+      background: rgba(242, 242, 242, 0.9);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      transition: background 0.2s var(--ease), color 0.2s var(--ease), transform 0.2s var(--ease);
+    }
+
+    .filter-btn.is-active {
+      background: linear-gradient(120deg, var(--accent), var(--accent-strong));
+      color: #fff;
+      transform: translateY(-1px);
+      box-shadow: 0 10px 20px rgba(32, 18, 12, 0.2);
+    }
+
+    .menu-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .menu-card {
+      position: relative;
+      background: linear-gradient(180deg, #ffffff, #f2f2f2);
+      border: 1px solid var(--outline);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: grid;
+      gap: 12px;
+      box-shadow: var(--shadow-soft);
+      transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+      overflow: hidden;
+    }
+
+    .menu-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(420px 180px at 100% 0%, rgba(224, 35, 46, 0.18), transparent 60%);
+      opacity: 0;
+      transition: opacity 0.3s var(--ease);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .menu-card > * { position: relative; z-index: 1; }
+
+    .menu-card:hover {
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 20px 40px rgba(18, 10, 6, 0.25);
+    }
+
+    .menu-card:hover::after { opacity: 1; }
+
+    .menu-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .menu-title {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .menu-price {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--accent-strong);
+      white-space: nowrap;
+    }
+
+    .menu-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .menu-tag {
+      background: rgba(242, 242, 242, 0.9);
+      border: 1px solid var(--outline);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+    }
+
+    .menu-board {
+      display: grid;
+      gap: 24px;
+    }
+
+    .menu-group {
+      display: grid;
+      gap: 12px;
+      scroll-margin-top: var(--menu-tabs-offset);
+    }
+
+    .menu-group-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .menu-group-title {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 20px;
+    }
+
+    .menu-group-note {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .menu-group-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    }
+
+    .menu-category {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(200px, 0.9fr) minmax(0, 1.1fr);
+      grid-template-areas:
+        "media head"
+        "media items";
+      gap: 16px;
+      align-items: center;
+      background: #f2f2f2;
+      border: 1px solid var(--outline);
+      border-radius: 26px;
+      padding: 18px;
+      box-shadow: var(--shadow-soft);
+      overflow: visible;
+    }
+
+    .menu-category::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(224, 35, 46, 0.12) 0%, rgba(224, 35, 46, 0.05) 40%, transparent 70%);
+      border-radius: inherit;
+      pointer-events: none;
+    }
+
+    .menu-category > * { position: relative; z-index: 1; }
+
+    .menu-category-head {
+      grid-area: head;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .menu-category-media {
+      grid-area: media;
+      width: min(240px, 100%);
+      aspect-ratio: 1 / 1;
+      border-radius: 50%;
+      background: #ffffff;
+      background-image: var(--item-photo);
+      background-size: cover;
+      background-position: center;
+      box-shadow: 0 18px 30px rgba(32, 18, 12, 0.18);
+      border: 10px solid #f2f2f2;
+      justify-self: center;
+      align-self: center;
+    }
+
+    .menu-category-title {
+      font-size: 20px;
+    }
+
+    .menu-group-title {
+      font-size: 18px;
+    }
+
+
+    .menu-category-title {
+      margin: 0;
+      font-family: var(--font-display);
+      font-size: 18px;
+    }
+
+    .menu-category-note {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .menu-items {
+      grid-area: items;
+      display: grid;
+      gap: 8px;
+      grid-template-columns: 1fr;
+    }
+
+    .menu-item {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      grid-template-areas:
+        "text price"
+        "actions actions";
+      gap: 6px 12px;
+      padding: 8px 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      background: transparent;
+      box-shadow: none;
+      cursor: pointer;
+      transition: transform 0.2s var(--ease), color 0.2s ease;
+      text-align: left;
+    }
+
+    .menu-item:last-child { border-bottom: none; }
+
+    .menu-item:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(18, 10, 6, 0.18);
+    }
+
+    .menu-item-text {
+      grid-area: text;
+      display: grid;
+      gap: 6px;
+      align-content: start;
+      position: relative;
+    }
+
+    .menu-item-name {
+      margin: 0;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      cursor: pointer;
+    }
+
+    .menu-item-name:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 8px;
+    }
+
+    .menu-item-desc,
+    .menu-item-note {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+      display: none;
+    }
+
+    .menu-item-price {
+      grid-area: price;
+      align-self: start;
+      justify-self: end;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #e0232e;
+      font-size: 12px;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .menu-item.is-open .menu-item-desc,
+    .menu-item.is-open .menu-item-note {
+      display: block;
+      margin-top: 4px;
+    }
+
+    .menu-item.is-open {
+      background: #ffffff;
+      border: 1px solid var(--outline);
+      border-radius: 16px;
+      padding: 12px 14px;
+      margin: 6px 0 6px -12px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .menu-item-actions {
+      grid-area: actions;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      margin-top: 8px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .menu-item.is-open .menu-item-actions { display: flex; }
+
+    .menu-item-qty {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid var(--outline);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .menu-qty-label {
+      font-weight: 600;
+      color: var(--text);
+      margin-right: 2px;
+    }
+
+    .menu-qty-btn {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid var(--outline);
+      background: #ffffff;
+      color: var(--text);
+      font-weight: 700;
+      line-height: 1;
+      display: grid;
+      place-items: center;
+      cursor: pointer;
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+    }
+
+    .menu-qty-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 12px rgba(32, 18, 12, 0.12);
+    }
+
+    .menu-qty-btn:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    .menu-qty-value {
+      min-width: 18px;
+      text-align: center;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .menu-item-add {
+      border: none;
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      color: #fff;
+      background: linear-gradient(120deg, var(--accent), var(--accent-strong));
+      box-shadow: 0 10px 18px rgba(32, 18, 12, 0.18);
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+    }
+
+    .menu-item-add:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 22px rgba(32, 18, 12, 0.22);
+    }
+
+    .menu-item-add:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+    }
+
+    .chef-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      align-items: center;
+    }
+
+    .chef-portrait {
+      position: relative;
+      border-radius: var(--radius-lg);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.7), transparent 55%),
+        linear-gradient(135deg, #6b3521, #24160f);
+      min-height: 280px;
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      padding: 22px;
+      display: grid;
+      align-content: end;
+      gap: 6px;
+      color: #fff;
+    }
+
+    .chef-portrait::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(260px 160px at 80% 0%, rgba(224, 35, 46, 0.35), transparent 60%);
+      opacity: 0.9;
+      pointer-events: none;
+    }
+
+    .chef-badge {
+      position: absolute;
+      top: 18px;
+      left: 18px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(16, 11, 8, 0.6);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .chef-name {
+      font-family: var(--font-display);
+      font-size: 22px;
+      z-index: 1;
+    }
+
+    .chef-role {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.75);
+      z-index: 1;
+    }
+
+    .chef-note {
+      margin-top: 16px;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--outline);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: grid;
+      gap: 8px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .chef-note-title {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .testimonial-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+
+    .testimonial-card {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid var(--outline);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      display: grid;
+      gap: 12px;
+      box-shadow: 0 10px 20px rgba(18, 10, 6, 0.08);
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .testimonial-quote {
+      font-style: italic;
+      color: var(--text);
+    }
+
+    .testimonial-meta {
+      display: grid;
+      gap: 2px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .testimonial-name {
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .reservation-grid {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      align-items: start;
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--outline);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      display: grid;
+      gap: 10px;
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+    }
+
+    .contact-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-label {
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .contact-value {
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .contact-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .reservation-form {
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid var(--outline);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      box-shadow: var(--shadow-soft);
+    }
+
+    .form-row {
+      display: grid;
+      gap: 6px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    .form-row.full { grid-column: 1 / -1; }
+
+    .reservation-form input,
+    .reservation-form select,
+    .reservation-form textarea {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 12px;
+      border: 1px solid var(--outline);
+      background: #ffffff;
+      font-family: inherit;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .reservation-form textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+
+    .form-note {
+      margin: 0;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .site-footer {
+      text-align: center;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 12px;
+      padding: 20px 0 40px;
+    }
+
+    
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 54px;
+      height: 54px;
+      border-radius: 999px;
+      background: #25d366;
+      color: #ffffff;
+      display: grid;
+      place-items: center;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3);
+      z-index: 9;
+      transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 32px rgba(0, 0, 0, 0.35);
+    }
+
+    .whatsapp-icon {
+      width: 26px;
+      height: 26px;
+      fill: currentColor;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      filter: blur(6px);
+      transition: opacity 600ms var(--ease), transform 600ms var(--ease), filter 600ms var(--ease);
+      transition-delay: var(--delay, 0ms);
+    }
+
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+      filter: blur(0);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px) translateX(0px); }
+      50% { transform: translateY(20px) translateX(-16px); }
+      100% { transform: translateY(0px) translateX(0px); }
+    }
+
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(224, 35, 46, 0.45); }
+      70% { box-shadow: 0 0 0 10px rgba(224, 35, 46, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(224, 35, 46, 0); }
+    }
+
+    @keyframes sheen {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes aurora {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(-4%, 6%, 0) scale(1.08); }
+      100% { transform: translate3d(0, 0, 0) scale(1); }
+    }
+
+    @keyframes drift {
+      0% { transform: translate3d(0, 0, 0) rotate(-4deg); }
+      50% { transform: translate3d(-3%, 2%, 0) rotate(-2deg); }
+      100% { transform: translate3d(0, 0, 0) rotate(-4deg); }
+    }
+    /* Nav pills */
+    .site-nav {
+      background: transparent;
+      border: none;
+      padding: 0;
+      gap: 8px;
+      box-shadow: none;
+      height: auto;
+    }
+
+    .nav-indicator { display: none; }
+
+    .nav-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      border: 1px solid rgba(12, 12, 12, 0.08);
+      border-radius: 999px;
+      color: #111;
+      font-weight: 600;
+      min-height: 30px;
+      padding: 0 14px;
+      line-height: 1;
+      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      transform: translateY(-1px);
+      background: #f4f4f4;
+    }
+
+    .nav-link.active {
+      background: #d7262b;
+      color: #fff;
+      border-color: transparent;
+      box-shadow: 0 6px 14px rgba(215, 38, 43, 0.25);
+      font-weight: 700;
+    }
+    @media (max-width: 980px) {
+      :root {
+        --menu-tabs-top: 170px;
+        --menu-tabs-offset: 260px;
+      }
+
+      .header-inner {
+        grid-template-columns: 1fr;
+        gap: 12px;
+        text-align: center;
+        border-radius: var(--radius-lg);
+      }
+
+      .brand {
+        justify-self: center;
+      }
+
+      .site-nav {
+        justify-content: center;
+        align-items: center;
+      }
+
+      .header-actions {
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .menu-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .menu-cart {
+        position: static;
+      }
+
+      .menu-topbar {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .menu-group-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .hero,
+      .story-grid,
+      .chef-grid,
+      .reservation-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      :root {
+        --menu-tabs-top: 130px;
+        --menu-tabs-offset: 200px;
+      }
+
+      .page { padding-top: 72px; }
+      .site-header { top: 8px; padding: 0 12px; }
+      .header-inner {
+        padding: 4px 8px 0;
+        gap: 4px;
+        border-radius: 18px;
+        grid-template-columns: auto 1fr;
+        grid-template-areas:
+          "brand actions"
+          "nav nav";
+        align-items: center;
+        text-align: left;
+      }
+      .header-actions {
+        width: auto;
+        gap: 6px;
+        flex-wrap: nowrap;
+        justify-content: flex-end;
+        align-items: center;
+        grid-area: actions;
+        justify-self: end;
+      }
+      .header-actions .nav-cta { width: auto; text-align: center; }
+      .brand { gap: 8px; grid-area: brand; justify-self: start; }
+      .site-nav {
+        grid-area: nav;
+        align-self: center;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        padding: 0 2px;
+        border-radius: 16px;
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+      .nav-link { height: auto; min-height: 24px; padding: 0 6px; font-size: 8px; line-height: 1; font-weight: 700; text-align: center; }
+      .nav-indicator { height: 1px; bottom: 0; }
+      .section-card { padding: 12px; }
+      body { font-size: 10px; }
+      h1 { font-size: clamp(18px, 6vw, 24px); }
+      h2 { font-size: clamp(15px, 5vw, 20px); }
+      h3 { font-size: 13px; }
+      p { font-size: 10px; }
+      .brand-mark { width: 46px; border-radius: 10px; }
+      .brand-name { font-size: 8px; }
+      .brand-role { font-size: 6px; }
+      .lang-switch { padding: 2px; }
+      .lang-btn { padding: 3px 7px; font-size: 9px; }
+      .nav-cta { padding: 5px 10px; font-size: 9px; }
+      .btn { padding: 7px 9px; font-size: 10px; }
+      .hero-pill { font-size: 8px; }
+      .bg-grid {
+        background-size: 24px 24px;
+        opacity: 0.12;
+      }
+      .bg-beams { opacity: 0.16; }
+      .blob-1 {
+        width: 320px;
+        height: 320px;
+        right: -110px;
+        top: -150px;
+      }
+      .blob-2 {
+        width: 380px;
+        height: 380px;
+        left: -160px;
+        bottom: -180px;
+      }
+      .reservation-form { grid-template-columns: 1fr; }
+      .menu-items { grid-template-columns: 1fr; }
+      .menu-item.is-open { margin-left: 0; }
+      .menu-group-grid { grid-template-columns: 1fr; }
+      .menu-category {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "media"
+          "head"
+          "items";
+      }
+      .menu-category-head {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .menu-category-media {
+        width: min(150px, 70%);
+        border-width: 6px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body data-lang="tr">
+  <div class="bg-grid"></div>
+  <div class="bg-beams"></div>
+  <div class="aurora aurora-1"></div>
+  <div class="aurora aurora-2"></div>
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark">
+          <img class="brand-logo" src="assets/erkanchef-logo.png" alt="ErkanChef logo" />
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">ERKAN CHEF&reg;</span>
+          <span class="brand-role">
+            <span data-lang="tr">T&#252;rk mutfa&#287;&#305; &#183; Vegi-friendly &#183; HALAL&reg;</span>
+            <span data-lang="de">T&#252;rkische K&#252;che &#183; Vegi-friendly &#183; HALAL&reg;</span>
+          </span>
+        </span>
+      </a>
+
+      <nav class="site-nav" id="siteNav" aria-label="Primary">
+        <span class="nav-indicator" id="navIndicator"></span>
+        <a class="nav-link" href="index.html">
+          <span data-lang="tr">Anasayfa</span>
+          <span data-lang="de">Startseite</span>
+        </a>
+        <a class="nav-link" href="mekan.html">
+          <span data-lang="tr">Mekan</span>
+          <span data-lang="de">Restaurant</span>
+        </a>
+        <a class="nav-link" href="menu.html">
+          <span data-lang="tr">Men&#252;</span>
+          <span data-lang="de">Speisekarte</span>
+        </a>
+        <a class="nav-link" href="sef.html">
+          <span data-lang="tr">&#350;ef</span>
+          <span data-lang="de">Chef</span>
+        </a>
+        <a class="nav-link" href="yorumlar.html">
+          <span data-lang="tr">Yorumlar</span>
+          <span data-lang="de">Bewertungen</span>
+        </a>
+        <a class="nav-link" href="rezervasyon.html">
+          <span data-lang="tr">Rezervasyon</span>
+          <span data-lang="de">Reservierung</span>
+        </a>
+      </nav>
+
+      <div class="header-actions">
+        <div class="lang-switch" role="group" aria-label="Dil / Sprache">
+          <button class="lang-btn is-active" type="button" data-lang-switch="tr" aria-pressed="true">TR</button>
+          <button class="lang-btn" type="button" data-lang-switch="de" aria-pressed="false">DE</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main class="page">
+    <section id="menu" class="section-card">
+      <div class="menu-layout">
+        <div class="menu-main">
+          <div class="menu-header">
+            <div class="section-head">
+              <a class="eyebrow">
+                <span data-lang="tr">Men&#252;</span>
+                <span data-lang="de">Speisekarte</span>
+              </a>
+              <h2>
+                <span data-lang="tr">ErkanChef men&#252;s&#252;</span>
+                <span data-lang="de">ErkanChef Auswahl</span>
+              </h2>
+              <a>
+                <span data-lang="tr">Fiyatlar servis se&#231;imine ve g&#252;nl&#252;k men&#252;ye g&#246;re de&#287;i&#351;ebilir.</span>
+                <span data-lang="de">Preise k&#246;nnen je nach Servierart und Tagesangebot variieren.</span>
+              </a>
+            </div>
+
+            <div class="menu-topbar">
+              <div class="menu-search">
+                <svg class="menu-search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                  <path d="M15.5 14h-.8l-.3-.3a6.5 6.5 0 1 0-.7.7l.3.3v.8L20 21.5 21.5 20l-6-6zm-6 0a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z"/>
+                </svg>
+                <input id="menuSearch" name="menu-search" type="search" data-placeholder-tr="Men&#252;de ara..." data-placeholder-de="Speisekarte durchsuchen..." placeholder="Men&#252;de ara..." aria-label="Menu search" />
+              </div>
+              <div class="menu-top-chip">
+                <span data-lang="tr">Bug&#252;n 11:00 - 22:00</span>
+                <span data-lang="de">Heute 11:00 - 22:00</span>
+              </div>
+              <div class="menu-top-chip">
+                <span data-lang="tr">Paket &amp; Servis</span>
+                <span data-lang="de">Takeaway &amp; Service</span>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="menu-tabs" role="tablist" aria-label="Men&#252; kategorileri">
+            <a class="menu-tab is-active" href="#group-servis">
+              <span class="menu-tab-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/>
+                </svg>
+              </span>
+              <span class="menu-tab-label">
+                <span data-lang="tr">Servis Se&#231;enekleri</span>
+                <span data-lang="de">Servieroptionen</span>
+              </span>
+            </a>
+            <a class="menu-tab" href="#group-hamur">
+              <span class="menu-tab-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 3c-3.9 0-7.4 1.6-10 4.1L12 21l10-13.9C19.4 4.6 15.9 3 12 3zm0 4a1.5 1.5 0 1 1-1.5 1.5A1.5 1.5 0 0 1 12 7zm-4 3a1.2 1.2 0 1 1-1.2 1.2A1.2 1.2 0 0 1 8 10zm7 2a1.2 1.2 0 1 1-1.2 1.2A1.2 1.2 0 0 1 15 12z"/>
+                </svg>
+              </span>
+              <span class="menu-tab-label">
+                <span data-lang="tr">Hamur &#304;&#351;leri</span>
+                <span data-lang="de">Teiggerichte</span>
+              </span>
+            </a>
+            <a class="menu-tab" href="#group-grill">
+              <span class="menu-tab-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M12 2c1 3-1 4-1 6 0 1.7 1.3 3 3 3 1.6 0 3-1.2 3-3 0-3-2-4-2-6 3 2 6 6 6 10a9 9 0 1 1-18 0c0-3.6 2-6.9 6-10z"/>
+                </svg>
+              </span>
+              <span class="menu-tab-label">
+                <span data-lang="tr">Grill &amp; Kebap</span>
+                <span data-lang="de">Grill &amp; Kebab</span>
+              </span>
+            </a>
+            <a class="menu-tab" href="#group-vejetaryen">
+              <span class="menu-tab-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24">
+                  <path d="M4 5h14v5a6 6 0 0 1-6 6H9a5 5 0 0 1-5-5V5zm14 1h2a3 3 0 0 1 0 6h-2V6zM5 19h12v2H5z"/>
+                </svg>
+              </span>
+              <span class="menu-tab-label">
+                <span data-lang="tr">Vejetaryen &amp; &#304;&#231;ecekler</span>
+                <span data-lang="de">Vegetarisch &amp; Getr&#228;nke</span>
+              </span>
+            </a>
+          </div>
+          <a class="menu-search-empty" id="menuSearchEmpty">
+            <span data-lang="tr">Sonu&#231; bulunamad&#305;.</span>
+            <span data-lang="de">Keine Treffer gefunden.</span>
+          </a>
+
+          <div class="menu-board">
+        <div class="menu-group reveal" id="group-servis">
+          <div class="menu-group-head">
+            <h3 class="menu-group-title">
+              <span data-lang="tr">Servis Se&#231;enekleri</span>
+              <span data-lang="de">Servieroptionen</span>
+            </h3>
+            <a class="menu-group-note">
+              <span data-lang="tr">Se&#231;ti&#287;iniz ekmek ve servis &#351;ekline g&#246;re fiyatlar.</span>
+              <span data-lang="de">Preise nach Brotwahl und Servierart.</span>
+            </a>
+          </div>
+          <div class="menu-group-grid">
+            <div class="menu-category" data-photo="assets/FLADEN_EKMEK.jpeg">
+              <div class="menu-category-head">
+                <h4 class="menu-category-title">
+                  <span data-lang="tr">Fladen Ekmek</span>
+                  <span data-lang="de">Fladenbrot</span>
+                </h4>
+              </div>
+              <div class="menu-items">
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">K&#305;ymal&#305;</span>
+                      <span data-lang="de">Hackfleisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Pide ekme&#287;inde baharatl&#305; k&#305;yma d&#246;ner, salata ve sosla.</span>
+                      <span data-lang="de">Fladenbrot mit gew&#252;rztem Hackfleisch-D&#246;ner, Salat &amp; So&#223;e.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">8.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Tavuk</span>
+                      <span data-lang="de">H&#228;hnchen</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Pide ekme&#287;inde tavuk d&#246;ner, salata ve sosla.</span>
+                      <span data-lang="de">Fladenbrot mit H&#228;hnchen-D&#246;ner, Salat &amp; So&#223;e.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">8.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Dilim Et</span>
+                      <span data-lang="de">Scheibenfleisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Pide ekme&#287;inde yaarak/scheiben d&#246;ner, salata ve sosla.</span>
+                      <span data-lang="de">Fladenbrot mit Scheibenfleisch-D&#246;ner, Salat &amp; So&#223;e.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">9.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Vejetaryen</span>
+                      <span data-lang="de">Vegetarisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Pide ekme&#287;inde vejetaryen i&#231; har&#231; (sebze a&#287;&#305;rl&#305;kl&#305;), salata ve sosla.</span>
+                      <span data-lang="de">Fladenbrot mit vegetarischer F&#252;llung (gem&#252;sebetont), Salat &amp; So&#223;e.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">6.50 &euro;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-category" data-photo="assets/YUFKA.jpeg">
+              <div class="menu-category-head">
+                <h4 class="menu-category-title">Yufka</h4>
+              </div>
+              <div class="menu-items">
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">K&#305;ymal&#305;</span>
+                      <span data-lang="de">Hackfleisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Yufkaya sar&#305;l&#305; k&#305;yma d&#246;ner d&#252;r&#252;m, salata ve sosla.</span>
+                      <span data-lang="de">Yufka-D&#252;rum mit Hackfleisch-D&#246;ner, Salat &amp; So&#223;e.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">9.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Tavuk</span>
+                      <span data-lang="de">H&#228;hnchen</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Yufkaya sar&#305;l&#305; tavuk d&#246;ner d&#252;r&#252;m, salata ve sosla.</span>
+                      <span data-lang="de">Yufka-D&#252;rum mit H&#228;hnchen-D&#246;ner, Salat &amp; So&#223;e.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">9.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Dilim Et</span>
+                      <span data-lang="de">Scheibenfleisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Yufkaya sar&#305;l&#305; yaarak/scheiben d&#246;ner d&#252;r&#252;m, salata ve sosla.</span>
+                      <span data-lang="de">Yufka-D&#252;rum mit Scheibenfleisch-D&#246;ner, Salat &amp; So&#223;e.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">9.50 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Vejetaryen</span>
+                      <span data-lang="de">Vegetarisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Yufkaya sar&#305;l&#305; vejetaryen d&#252;r&#252;m (sebze a&#287;&#305;rl&#305;kl&#305;), salata ve sosla.</span>
+                      <span data-lang="de">Vegetarischer Yufka-D&#252;rum (gem&#252;sebetont), Salat &amp; So&#223;e.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">7.50 &euro;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-category" data-photo="assets/TABAK.jpeg">
+              <div class="menu-category-head">
+                <h4 class="menu-category-title">
+                  <span data-lang="tr">Tabak</span>
+                  <span data-lang="de">Teller</span>
+                </h4>
+              </div>
+              <div class="menu-items">
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">K&#305;ymal&#305;</span>
+                      <span data-lang="de">Hackfleisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Tabakta k&#305;yma d&#246;ner; yan&#305;nda salata, sos ve pilav veya patates.</span>
+                      <span data-lang="de">Teller mit Hackfleisch-D&#246;ner; dazu Salat, So&#223;e und Reis oder Pommes.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">13.50 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Tavuk</span>
+                      <span data-lang="de">H&#228;hnchen</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Tabakta tavuk d&#246;ner; yan&#305;nda salata, sos ve pilav veya patates.</span>
+                      <span data-lang="de">Teller mit H&#228;hnchen-D&#246;ner; dazu Salat, So&#223;e und Reis oder Pommes.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">13.50 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Dilim Et</span>
+                      <span data-lang="de">Scheibenfleisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Tabakta yaarak/scheiben d&#246;ner; yan&#305;nda salata, sos ve pilav veya patates.</span>
+                      <span data-lang="de">Teller mit Scheibenfleisch-D&#246;ner; dazu Salat, So&#223;e und Reis oder Pommes.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">14.50 &euro;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-category" data-photo="assets/BOX.jpeg">
+              <div class="menu-category-head">
+                <h4 class="menu-category-title">Box</h4>
+              </div>
+              <div class="menu-items">
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">K&#305;ymal&#305;</span>
+                      <span data-lang="de">Hackfleisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Paket kutuda k&#305;yma d&#246;ner (genelde patates/pilav e&#351;likli).</span>
+                      <span data-lang="de">Box mit Hackfleisch-D&#246;ner (meist mit Pommes/Reis).</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">8.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Tavuk</span>
+                      <span data-lang="de">H&#228;hnchen</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Paket kutuda tavuk d&#246;ner (genelde patates/pilav e&#351;likli).</span>
+                      <span data-lang="de">Box mit H&#228;hnchen-D&#246;ner (meist mit Pommes/Reis).</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">8.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Dilim Et</span>
+                      <span data-lang="de">Scheibenfleisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Paket kutuda yaarak/scheiben d&#246;ner (genelde patates/pilav e&#351;likli).</span>
+                      <span data-lang="de">Box mit Scheibenfleisch-D&#246;ner (meist mit Pommes/Reis).</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">9.00 &euro;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-category" data-photo="assets/SEELE.jpeg">
+              <div class="menu-category-head">
+                <h4 class="menu-category-title">Seele</h4>
+              </div>
+              <div class="menu-items">
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">K&#305;ymal&#305;</span>
+                      <span data-lang="de">Hackfleisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Seele ekme&#287;inde k&#305;yma d&#246;ner sandvi&#231;, salata ve sosla.</span>
+                      <span data-lang="de">Seele-Br&#246;tchen mit Hackfleisch-D&#246;ner, Salat &amp; So&#223;e.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">11.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Tavuk</span>
+                      <span data-lang="de">H&#228;hnchen</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Seele ekme&#287;inde tavuk d&#246;ner sandvi&#231;, salata ve sosla.</span>
+                      <span data-lang="de">Seele-Br&#246;tchen mit H&#228;hnchen-D&#246;ner, Salat &amp; So&#223;e.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">11.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Dilim Et</span>
+                      <span data-lang="de">Scheibenfleisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Seele ekme&#287;inde yaarak/scheiben d&#246;ner sandvi&#231;, salata ve sosla.</span>
+                      <span data-lang="de">Seele-Br&#246;tchen mit Scheibenfleisch-D&#246;ner, Salat &amp; So&#223;e.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">11.50 &euro;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-group reveal" id="group-hamur">
+          <div class="menu-group-head">
+            <h3 class="menu-group-title">
+              <span data-lang="tr">Hamur &#304;&#351;leri</span>
+              <span data-lang="de">Teiggerichte</span>
+            </h3>
+            <a class="menu-group-note">
+              <span data-lang="tr">Lahmacun, pizza ve pide se&#231;enekleri.</span>
+              <span data-lang="de">Lahmacun, Pizza und Pide Auswahl.</span>
+            </a>
+          </div>
+          <div class="menu-group-grid">
+            <div class="menu-category" data-photo="assets/LAHMACUN.jpeg">
+              <div class="menu-category-head">
+                <h4 class="menu-category-title">Lahmacun</h4>
+              </div>
+              <div class="menu-items">
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Klasik</span>
+                      <span data-lang="de">Klassisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">&#304;nce hamur &#252;st&#252;nde klasik baharatl&#305; k&#305;yma harc&#305;.</span>
+                      <span data-lang="de">D&#252;nner Teig mit klassischem gew&#252;rztem Hackfleischbelag.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">5.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Salata &amp; Sos</span>
+                      <span data-lang="de">Mit Salat &amp; So&#223;e</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Klasik lahmacun; salata ve sosla servis edilir.</span>
+                      <span data-lang="de">Klassische Lahmacun, serviert mit Salat &amp; So&#223;e.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">7.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Spesyal</span>
+                      <span data-lang="de">Spezial</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Daha dolu k&#305;yma harc&#305; + salata ve sosla.</span>
+                      <span data-lang="de">Kr&#228;ftiger Hackfleischbelag alus Salat &amp; So&#223;e.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">10.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">K&#305;ymal&#305;</span>
+                      <span data-lang="de">Hackfleisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Lahmacun &#252;st&#252; baharatl&#305; k&#305;yma + salata ve sos.</span>
+                      <span data-lang="de">Lahmacun mit gew&#252;rztem Hackfleisch, Salat &amp; So&#223;e.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">10.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Dilim Et</span>
+                      <span data-lang="de">Scheibenfleisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Lahmacun &#252;st&#252; yaarak/scheiben et + salata ve sosla.</span>
+                      <span data-lang="de">Lahmacun mit Scheibenfleisch, Salat &amp; So&#223;e.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">11.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Tavuk</span>
+                      <span data-lang="de">H&#228;hnchen</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Lahmacun &#252;st&#252; tavuk eti + salata ve sosla.</span>
+                      <span data-lang="de">Lahmacun mit H&#228;hnchenfleisch, Salat &amp; So&#223;e.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">10.00 &euro;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-category" data-photo="assets/PIZZA.jpeg">
+              <div class="menu-category-head">
+                <h4 class="menu-category-title">Pizza</h4>
+              </div>
+              <div class="menu-items">
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">Margherita</a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Domates sosu ve mozzarella aeyniriyle klasik pizza.</span>
+                      <span data-lang="de">Klassische Pizza mit Tomatensauce und Mozzarella.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">9.50 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">Funghi</a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Mantar ilaveli pizza.</span>
+                      <span data-lang="de">Pizza mit Chamaignons.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">10.50 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Hindi Jambon</span>
+                      <span data-lang="de">Putenschinken</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Hindi jambonu (auten &#351;inken) ile.</span>
+                      <span data-lang="de">Mit Putenschinken.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">10.50 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">Salami</a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Salam dilimleriyle.</span>
+                      <span data-lang="de">Mit Salamischeiben.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">10.50 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Ton Bal&#305;kl&#305;</span>
+                      <span data-lang="de">Thunfisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Ton bal&#305;&#287;&#305;yla.</span>
+                      <span data-lang="de">Mit Thunfisch.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">10.50 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">Sucuk</a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Sucuk dilimleriyle.</span>
+                      <span data-lang="de">Mit Sucukscheiben.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">11.50 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Vejetaryen</span>
+                      <span data-lang="de">Vegetarisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Sebzeli ve etsiz pizza.</span>
+                      <span data-lang="de">Vegetarische Pizza mit Gem&#252;se.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">11.50 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">K&#305;ymal&#305;</span>
+                      <span data-lang="de">Hackfleisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Baharatl&#305; k&#305;yma harc&#305;yla.</span>
+                      <span data-lang="de">Mit gew&#252;rztem Hackfleisch.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">11.50 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Tavuk</span>
+                      <span data-lang="de">H&#228;hnchen</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Tavuk aar&#231;alar&#305;yla.</span>
+                      <span data-lang="de">Mit H&#228;hnchenst&#252;cken.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">11.50 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Dilim Et</span>
+                      <span data-lang="de">Scheibenfleisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Yaarak/scheiben d&#246;ner etiyle.</span>
+                      <span data-lang="de">Mit Scheibenfleisch-D&#246;ner.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">12.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Ek malzeme</span>
+                      <span data-lang="de">Jede weitere Zutat</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Ek malzeme i&#231;in.</span>
+                      <span data-lang="de">Jede extra Zutat.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">1.00 &euro;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-category" data-photo="assets/PIDE.jpeg">
+              <div class="menu-category-head">
+                <h4 class="menu-category-title">Pide</h4>
+              </div>
+              <div class="menu-items">
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Peynir</span>
+                      <span data-lang="de">K&#228;se</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Peynirli pide (klasik).</span>
+                      <span data-lang="de">Pide mit K&#228;se (klassisch).</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">9.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">K&#305;ymal&#305;</span>
+                      <span data-lang="de">Hackfleisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">K&#305;ymal&#305; pide.</span>
+                      <span data-lang="de">Pide mit Hackfleisch.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">10.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Ispanak &amp; Peynir</span>
+                      <span data-lang="de">Spinat &amp; K&#228;se</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Ispanak ve peynirli.</span>
+                      <span data-lang="de">Pide mit Spinat &amp; K&#228;se.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">10.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">Sucuk</a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Sucuklu pide.</span>
+                      <span data-lang="de">Pide mit Sucuk.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">11.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Vejetaryen</span>
+                      <span data-lang="de">Vegetarisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Sebzeli/etsiz pide.</span>
+                      <span data-lang="de">Vegetarische Pide.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">11.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">K&#305;ymal&#305; &amp; Tavuk</span>
+                      <span data-lang="de">Hackfleisch &amp; H&#228;hnchen</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">K&#305;ymal&#305; ve tavuk etli kar&#305;&#351;&#305;k pide.</span>
+                      <span data-lang="de">Pide mit Hackfleisch &amp; H&#228;hnchen.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">11.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Dilim Et</span>
+                      <span data-lang="de">Scheibenfleisch</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Yaarak/scheiben d&#246;ner etiyle pide.</span>
+                      <span data-lang="de">Pide mit Scheibenfleisch-D&#246;ner.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">12.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Ku&#351;ba&#351;&#305;</span>
+                      <span data-lang="de">Kusbasi</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Ku&#351;ba&#351;&#305; etli pide.</span>
+                      <span data-lang="de">Pide mit Kusbasi.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">12.50 &euro;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-group reveal" id="group-grill">
+          <div class="menu-group-head">
+            <h3 class="menu-group-title">
+              <span data-lang="tr">Grill &amp; Kebap</span>
+              <span data-lang="de">Grill &amp; Kebab</span>
+            </h3>
+            <a class="menu-group-note">
+              <span data-lang="tr">T&#252;m kebaplar salata, sos ve pilav/patates ile servis edilir.</span>
+              <span data-lang="de">Alle Kebabs werden mit Salat, So&#223;e und Reis oder Pommes serviert.</span>
+            </a>
+          </div>
+          <div class="menu-group-grid">
+            <div class="menu-category" data-photo="assets/IZGARA.jpeg">
+              <div class="menu-category-head">
+                <h4 class="menu-category-title">
+                  <span data-lang="tr">Kebap &#199;e&#351;itleri</span>
+                  <span data-lang="de">Kebab Sorten</span>
+                </h4>
+              </div>
+              <div class="menu-items">
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Tavuk &#350;i&#351;</span>
+                      <span data-lang="de">H&#228;hnchen Spie&#223;</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Izgara tavuk &#351;i&#351;; salata, sos ve pilav/aatatesle servis.</span>
+                      <span data-lang="de">Gegrillter H&#228;hnchen-Saie&#223;, serviert mit Salat, So&#223;e und Reis/Pommes.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">19.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Adana Kebap</span>
+                      <span data-lang="de">Adana Kebab</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Ac&#305;l&#305; baharatl&#305; k&#305;yma kebap; salata, sos ve pilav/aatatesle servis.</span>
+                      <span data-lang="de">W&#252;rziges Adana-Kebab aus Hackfleisch, serviert mit Salat, So&#223;e und Reis/Pommes.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">19.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">K&#246;fte</a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Izgara k&#246;fte; salata, sos ve pilav/aatatesle servis.</span>
+                      <span data-lang="de">Gegrillte K&#246;fte, serviert mit Salat, So&#223;e und Reis/Pommes.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">19.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Chef&#39;s Grill Taba&#287;&#305;</span>
+                      <span data-lang="de">Chef&#39;s Grillplatte</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Kar&#305;&#351;&#305;k &#305;zgara taba&#287;&#305;; doyurucu kar&#305;&#351;&#305;m.</span>
+                      <span data-lang="de">Gemischte Grillplatte, kr&#228;ftige Auswahl.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">29.00 &euro;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-category" data-photo="assets/TANTUNI.jpeg">
+              <div class="menu-category-head">
+                <h4 class="menu-category-title">Tantuni</h4>
+              </div>
+              <div class="menu-items">
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Ekmek Aras&#305;</span>
+                      <span data-lang="de">Im Brot</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Ekmek aras&#305; tantuni; h&#305;zl&#305; ve aratik.</span>
+                      <span data-lang="de">Tantuni im Brot, schnell und araktisch.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">10.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Yufka</span>
+                      <span data-lang="de">Im Yufka</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Yufkaya sar&#305;l&#305; tantuni d&#252;r&#252;m.</span>
+                      <span data-lang="de">Tantuni im Yufka-D&#252;rum.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">10.00 &euro;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-category" data-photo="assets/ISKENDER_GUVEC.jpeg">
+              <div class="menu-category-head">
+                <h4 class="menu-category-title">
+                  <span data-lang="tr">&#304;skender G&#252;ve&#231;</span>
+                  <span data-lang="de">Iskender G&#252;ve&#231;</span>
+                </h4>
+              </div>
+              <div class="menu-items">
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">&#304;skender G&#252;ve&#231;</span>
+                      <span data-lang="de">Iskender G&#252;ve&#231;</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">G&#252;ve&#231;te iskender tarz&#305; servis; taze ve &#305;zgara sebzelerle.</span>
+                      <span data-lang="de">Iskender im G&#252;ve&#231;, serviert mit frischem &amp; gegrilltem Gem&#252;se.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">15.00 &euro;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-category" data-photo="assets/EKMEK-YUFKA.jpeg">
+              <div class="menu-category-head">
+                <h4 class="menu-category-title">
+                  <span data-lang="tr">Ekmek | Yufka</span>
+                  <span data-lang="de">Brot | Yufka</span>
+                </h4>
+              </div>
+              <div class="menu-items">
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Tavuk &#350;i&#351; Yufka</span>
+                      <span data-lang="de">H&#228;hnchen Spie&#223; Yufka</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Yufkada tavuk &#351;i&#351; d&#252;r&#252;m.</span>
+                      <span data-lang="de">H&#228;hnchen-Saie&#223; im Yufka-D&#252;rum.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">10.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">Adana Yufka</a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Yufkada adana d&#252;r&#252;m.</span>
+                      <span data-lang="de">Adana im Yufka-D&#252;rum.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">10.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">K&#246;fte Ekmek</span>
+                      <span data-lang="de">K&#246;fte im Brot</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Ekmek aras&#305; k&#246;fte.</span>
+                      <span data-lang="de">K&#246;fte im Brot.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">10.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Sucuk Ekmek</span>
+                      <span data-lang="de">Sucuk im Brot</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Ekmek aras&#305; sucuk.</span>
+                      <span data-lang="de">Sucuk im Brot.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">8.00 &euro;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-category" data-photo="assets/NUGGET.jpeg">
+              <div class="menu-category-head">
+                <h4 class="menu-category-title">Nuggets</h4>
+              </div>
+              <div class="menu-items">
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Nuggets Box (5 stk.)</span>
+                      <span data-lang="de">Nuggets Box (5 Stk.)</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">5 adet nugget + patates veya pilav.</span>
+                      <span data-lang="de">5 Nuggets + Pommes oder Reis.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">8.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Nuggets Box (10 stk.)</span>
+                      <span data-lang="de">Nuggets Box (10 Stk.)</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">10 adet nugget + patates veya pilav.</span>
+                      <span data-lang="de">10 Nuggets + Pommes oder Reis.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">11.00 &euro;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-category" data-photo="assets/HAMBURGER.jpeg">
+              <div class="menu-category-head">
+                <h4 class="menu-category-title">Burger</h4>
+              </div>
+              <div class="menu-items">
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">Hamburger</a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Klasik burger k&#246;ftesi, temel burger malzemeleriyle.</span>
+                      <span data-lang="de">Klassischer Burger mit Standardzutaten.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">7.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">Cheeseburger</a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Hamburger + peynir ilavesi.</span>
+                      <span data-lang="de">Hamburger mit K&#228;se.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">7.50 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">&#199;ift Hamburger</span>
+                      <span data-lang="de">Double Hamburger</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">&#199;ift k&#246;fteli hamburger.</span>
+                      <span data-lang="de">Double Burger mit zwei Patties.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">11.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">&#199;ift Cheeseburger</span>
+                      <span data-lang="de">Double Cheeseburger</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">&#199;ift k&#246;fte + &#231;ift/bol peynirli.</span>
+                      <span data-lang="de">Double Burger mit extra K&#228;se.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">11.50 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">Chickenburger</a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Tavuk burger (&#231;&#305;t&#305;r/&#305;zgara tavukla).</span>
+                      <span data-lang="de">Chickenburger mit H&#228;hnchen (knusarig/gegrillt).</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">7.50 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">Chef&#39;s Burger</a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">&#350;efin &#246;zel burgeri (daha dolu/&#246;zel soslu se&#231;enek).</span>
+                      <span data-lang="de">Chef&#39;s Burger mit saezieller So&#223;e.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">10.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Patates &amp; &#304;&#231;ecek (Men&#252;)</span>
+                      <span data-lang="de">Pommes &amp; Getr&#228;nke (Men&#252;)</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Men&#252;ye patates ve i&#231;ecek ekleyin.</span>
+                      <span data-lang="de">Pommes &amp; Getr&#228;nk als Men&#252;-Zusatz.</span>
+                    </a>
+                    <a class="menu-item-note">
+                      <span data-lang="tr">Men&#252; ekleme</span>
+                      <span data-lang="de">Men&#252;-Zusatz</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">4.00 &euro;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="menu-group reveal" id="group-vejetaryen">
+          <div class="menu-group-head">
+            <h3 class="menu-group-title">
+              <span data-lang="tr">Vejetaryen &amp; &#304;&#231;ecekler</span>
+              <span data-lang="de">Vegetarisch &amp; Getr&#228;nke</span>
+            </h3>
+            <a class="menu-group-note">
+              <span data-lang="tr">Paket servis i&#231;in +0.25 &euro;.</span>
+              <span data-lang="de">+0.25 &euro; bei Mitnahme.</span>
+            </a>
+          </div>
+          <div class="menu-group-grid">
+            <div class="menu-category" data-photo="assets/ICECEKLER.jpeg">
+              <div class="menu-category-head">
+                <h4 class="menu-category-title">
+                  <span data-lang="tr">&#304;&#231;ecekler</span>
+                  <span data-lang="de">Getr&#228;nke</span>
+                </h4>
+              </div>
+              <div class="menu-items">
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">Cola, Fanta, Mezzo</a>
+                  </div>
+                  <span class="menu-item-price">2.25 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Uluda&#287;, Sprite</span>
+                      <span data-lang="de">Uludag, Sprite</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">2.25 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">Durstl&#246;scher</a>
+                  </div>
+                  <span class="menu-item-price">2.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">&#199;aml&#305;ca Gazoz</span>
+                      <span data-lang="de">Camlica Gazoz</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">2.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">Redbull</a>
+                  </div>
+                  <span class="menu-item-price">2.90 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">Ayran</a>
+                  </div>
+                  <span class="menu-item-price">2.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Sade Su</span>
+                      <span data-lang="de">Tafelwasser</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">1.75 &euro;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-category" data-photo="assets/GUNUN_YEMEGI.jpeg">
+              <div class="menu-category-head">
+                <h4 class="menu-category-title">
+                  <span data-lang="tr">G&#252;n&#252;n Yeme&#287;i</span>
+                  <span data-lang="de">Tagesessen</span>
+                </h4>
+              </div>
+              <div class="menu-items">
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">G&#252;n&#252;n Yeme&#287;i</span>
+                      <span data-lang="de">Tagesessen</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">G&#252;n&#252;n yeme&#287;i; pilav + salata + sosla servis.</span>
+                      <span data-lang="de">Tagesessen mit Reis, Salat &amp; So&#223;e.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">9.00 &euro;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-category" data-photo="assets/SALATA.jpeg">
+              <div class="menu-category-head">
+                <h4 class="menu-category-title">
+                  <span data-lang="tr">Salata</span>
+                  <span data-lang="de">Salate</span>
+                </h4>
+              </div>
+              <div class="menu-items">
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Ton Bal&#305;kl&#305; Salata</span>
+                      <span data-lang="de">Thunfisch Salat</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Ton bal&#305;&#287;&#305;l&#305; salata.</span>
+                      <span data-lang="de">Salat mit Thunfisch.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">7.50 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Peynirli Salata</span>
+                      <span data-lang="de">Salat mit Weichk&#228;se</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Beyaz/soft peynirli salata.</span>
+                      <span data-lang="de">Salat mit Weichk&#228;se.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">7.50 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Tavuk G&#246;&#287;s&#252; Salatas&#305;</span>
+                      <span data-lang="de">H&#228;hnchenbrustsalat</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Tavuk g&#246;&#287;s&#252; dilimleriyle salata.</span>
+                      <span data-lang="de">Salat mit H&#228;hnchenbrust.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">7.50 &euro;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-category" data-photo="assets/PATATES_KIZARTMASI.jpeg">
+              <div class="menu-category-head">
+                <h4 class="menu-category-title">
+                  <span data-lang="tr">Patates K&#305;zartmas&#305;</span>
+                  <span data-lang="de">Pommes</span>
+                </h4>
+              </div>
+              <div class="menu-items">
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Patates K&#305;zartmas&#305;</span>
+                      <span data-lang="de">Pommes</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Klasik patates k&#305;zartmas&#305;.</span>
+                      <span data-lang="de">Klassische Pommes.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">4.00 &euro;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-category" data-photo="assets/FALAFEL.jpeg">
+              <div class="menu-category-head">
+                <h4 class="menu-category-title">Falafel</h4>
+              </div>
+              <div class="menu-items">
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Pide Ekme&#287;inde</span>
+                      <span data-lang="de">Im Fladenbrot</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Pide ekme&#287;inde falafel + salata ve sos.</span>
+                      <span data-lang="de">Falafel im Fladenbrot mit Salat &amp; So&#223;e.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">7.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Salata &amp; Sos</span>
+                      <span data-lang="de">Mit Salat &amp; So&#223;e</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Falafel aorsiyon; salata ve sosla.</span>
+                      <span data-lang="de">Falafel-Portion mit Salat &amp; So&#223;e.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">7.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Yufkada</span>
+                      <span data-lang="de">Im Yufka</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Yufkaya sar&#305;l&#305; falafel d&#252;r&#252;m + salata ve sos.</span>
+                      <span data-lang="de">Falafel im Yufka-D&#252;rum mit Salat &amp; So&#223;e.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">8.00 &euro;</span>
+                </div>
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">Tabak</span>
+                      <span data-lang="de">Teller</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">Tabakta falafel; salata, sos ve pilav veya aatatesle.</span>
+                      <span data-lang="de">Falafel-Teller mit Salat, So&#223;e und Reis oder Pommes.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">12.50 &euro;</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="menu-category" data-photo="assets/CORBA.jpeg">
+              <div class="menu-category-head">
+                <h4 class="menu-category-title">
+                  <span data-lang="tr">&#199;orba</span>
+                  <span data-lang="de">Suppe</span>
+                </h4>
+              </div>
+              <div class="menu-items">
+                <div class="menu-item reveal">
+                  <div class="menu-item-text">
+                    <a class="menu-item-name">
+                      <span data-lang="tr">&#199;orba</span>
+                      <span data-lang="de">Suppe</span>
+                    </a>
+                    <a class="menu-item-desc">
+                      <span data-lang="tr">G&#252;n&#252;n &#231;orbas&#305;.</span>
+                      <span data-lang="de">Tagessuaae.</span>
+                    </a>
+                  </div>
+                  <span class="menu-item-price">6.00 &euro;</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <aside class="menu-cart">
+        <div class="order-summary">
+          <a class="eyebrow">
+            <span data-lang="tr">Seaet</span>
+            <span data-lang="de">Warenkorb</span>
+          </a>
+          <h3>
+            <span data-lang="tr">Se&#231;ilen Yemekler</span>
+            <span data-lang="de">Ausgew&#228;hlte Gerichte</span>
+          </h3>
+          <a class="order-summary-note" id="orderSummaryItems">Hen&#252;z se&#231;im yok.</a>
+          <div class="order-summary-list" id="orderSummaryList" aria-live="aolite"></div>
+          <div class="order-summary-total">
+            <span data-lang="tr">Toplam</span>
+            <span data-lang="de">Gesamt</span>
+            <strong id="orderSummaryTotal">0.00 &euro;</strong>
+          </div>
+          <button class="btn primary order-confirm" type="button" id="orderConfirmBtn" disabled>
+            <span data-lang="tr">Sipari&#351;i Onayla</span>
+            <span data-lang="de">Bestellung best&#228;tigen</span>
+          </button>
+          <a class="order-summary-foot">
+            <span data-lang="tr">Onaylad&#305;ktan sonra bilgileriniz istenecektir.</span>
+            <span data-lang="de">Nach Best&#228;tigung werden Ihre Daten abgefragt.</span>
+          </a>
+        </div>
+      </aside>
+    </div>
+    </section>
+  </main>
+
+  <div class="order-modal" id="orderModal" aria-hidden="true">
+    <div class="order-modal-backdrop" data-modal-close></div>
+    <div class="order-modal-card" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle">
+      <button class="order-modal-close" type="button" data-modal-close aria-label="Close">×</button>
+      <h3 id="orderModalTitle">
+        <span data-lang="tr">Sipari&#351; Onay&#305;</span>
+        <span data-lang="de">Bestellbest&#228;tigung</span>
+      </h3>
+      <a class="order-modal-note">
+        <span data-lang="tr">Se&#231;ti&#287;iniz yemekler ve toplam tutar:</span>
+        <span data-lang="de">Ihre Auswahl und Gesamtsumme:</span>
+      </a>
+      <div class="order-modal-summary">
+        <div class="order-summary-list" id="orderModalList"></div>
+        <div class="order-summary-total">
+          <span data-lang="tr">Toplam</span>
+          <span data-lang="de">Gesamt</span>
+          <strong id="orderModalTotal">0.00 &euro;</strong>
+        </div>
+      </div>
+
+      <form class="reservation-form order-modal-form" action="#" method="post" data-wa="9647764883990">
+        <div class="form-row">
+          <label for="order-name">
+            <span data-lang="tr">&#304;sim Soyisim</span>
+            <span data-lang="de">Name</span>
+          </label>
+          <input id="order-name" name="order-name" type="text" data-placeholder-tr="Ad&#305;n&#305;z ve soyad&#305;n&#305;z" data-placeholder-de="Vor- und Nachname" placeholder="Ad&#305;n&#305;z ve soyad&#305;n&#305;z" required />
+        </div>
+        <div class="form-row">
+          <label for="order-phone">
+            <span data-lang="tr">Telefon</span>
+            <span data-lang="de">Telefon</span>
+          </label>
+          <input id="order-phone" name="order-phone" type="tel" placeholder="+964 776 488 3990" required />
+        </div>
+        <div class="form-row">
+          <label for="order-address">
+            <span data-lang="tr">Adres (Opsiyonel)</span>
+            <span data-lang="de">Adresse (Optional)</span>
+          </label>
+          <input id="order-address" name="order-address" type="text" data-placeholder-tr="Teslimat adresi" data-placeholder-de="Lieferadresse" placeholder="Teslimat adresi" />
+        </div>
+        <div class="form-row">
+          <label for="order-note">
+            <span data-lang="tr">Not</span>
+            <span data-lang="de">Notiz</span>
+          </label>
+          <textarea id="order-note" name="order-note" data-placeholder-tr="Alerjen, sos tercihi, ek istek" data-placeholder-de="Allergien, So&#223;enwunsch, Zusatzinfo" placeholder="Alerjen, sos tercihi, ek istek"></textarea>
+        </div>
+        <div class="form-row">
+          <button class="btn primary" type="submit">
+            <span data-lang="tr">WhatsApp&#39;tan G&#246;nder</span>
+            <span data-lang="de">Per WhatsApp senden</span>
+          </button>
+          <a class="form-note">
+            <span data-lang="tr">Form g&#246;nderildi&#287;inde WhatsApp mesaj&#305; otomatik olu&#351;ur.</span>
+            <span data-lang="de">Beim Senden wird eine WhatsApp-Nachricht automatisch erstellt.</span>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <footer class="site-footer">
+    <span data-lang="tr">2025 ERKAN CHEF&reg; | Restoran</span>
+    <span data-lang="de">2025 ERKAN CHEF&reg; | Restaurant</span>
+  </footer>
+  <script>
+    const nav = document.getElementById("siteNav");
+    const indicator = document.getElementById("navIndicator");
+    const navLinks = nav ? Array.from(nav.querySelectorAll(".nav-link")) : [];
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const langButtons = Array.from(document.querySelectorAll("[data-lang-switch]"));
+    const cart = new Map();
+
+    const getLangText = (root) => {
+      if (!root) return "";
+      const lang = document.body.getAttribute("data-lang") || "tr";
+      const langNodes = root.querySelectorAll(`[data-lang="${lang}"]`);
+      if (langNodes.length) {
+        return Array.from(langNodes)
+          .map((node) => node.textContent.replace(/\s+/g, " ").trim())
+          .filter(Boolean)
+          .join(" ");
+      }
+      return root.textContent.replace(/\s+/g, " ").trim();
+    };
+
+    const getItemName = (item) => getLangText(item.querySelector(".menu-item-name"));
+
+    const getItemDetails = (item) => {
+      const detailNodes = Array.from(item.querySelectorAll(".menu-item-desc, .menu-item-note"));
+      if (!detailNodes.length) return "";
+      return detailNodes
+        .map((node) => getLangText(node))
+        .filter(Boolean)
+        .join(" | ");
+    };
+
+    const getItemPrice = (item) => {
+      const priceText = item.querySelector(".menu-item-price")?.textContent || "";
+      const normalized = priceText.replace(/[^\d,.\-]/g, "").replace(",", ".");
+      const value = parseFloat(normalized);
+      return Number.isFinite(value) ? value : 0;
+    };
+
+    const formatPrice = (value) => `${value.toFixed(2)} \u20ac`;
+    const orderSummaryItems = document.getElementById("orderSummaryItems");
+    const orderSummaryList = document.getElementById("orderSummaryList");
+    const orderSummaryTotal = document.getElementById("orderSummaryTotal");
+    const orderConfirmBtn = document.getElementById("orderConfirmBtn");
+    const orderModal = document.getElementById("orderModal");
+    const orderModalList = document.getElementById("orderModalList");
+    const orderModalTotal = document.getElementById("orderModalTotal");
+    const menuSearch = document.getElementById("menuSearch");
+    const menuSearchEmpty = document.getElementById("menuSearchEmpty");
+
+    const renderOrderList = (container, items, unitLabel) => {
+      if (!container) return;
+      container.innerHTML = "";
+      items.forEach((item) => {
+        const row = document.createElement("div");
+        row.className = "order-item";
+        const main = document.createElement("div");
+        main.className = "order-item-main";
+        const title = document.createElement("div");
+        title.className = "order-item-title";
+        title.textContent = `${item.qty}x ${item.name}`;
+        const total = document.createElement("div");
+        total.className = "order-item-total";
+        total.textContent = formatPrice(item.lineTotal);
+        main.appendChild(title);
+        main.appendChild(total);
+        const unit = document.createElement("a");
+        unit.className = "order-item-unit";
+        unit.textContent = `${unitLabel}: ${formatPrice(item.unitPrice)}`;
+        row.appendChild(main);
+        row.appendChild(unit);
+        container.appendChild(row);
+      });
+    };
+
+    const updateCartSummary = () => {
+      const lang = document.body.getAttribute("data-lang") || "tr";
+      const unitLabel = lang === "de" ? "St\u00fcckpreis" : "Birim fiyat";
+      const emptyLabel = lang === "de" ? "Noch keine Auswahl." : "Hen\u00fcz se\u00e7im yok.";
+      const items = [];
+      let total = 0;
+      cart.forEach((qty, item) => {
+        const name = getItemName(item);
+        const unitPrice = getItemPrice(item);
+        const lineTotal = unitPrice * qty;
+        total += lineTotal;
+        items.push({ name, qty, unitPrice, lineTotal, details: getItemDetails(item) });
+      });
+      if (orderSummaryItems) {
+        orderSummaryItems.textContent = items.length
+          ? items.map((item) => `${item.qty}x ${item.name}`).join(" \u2022 ")
+          : emptyLabel;
+      }
+      renderOrderList(orderSummaryList, items, unitLabel);
+      renderOrderList(orderModalList, items, unitLabel);
+      if (orderSummaryTotal) orderSummaryTotal.textContent = formatPrice(total);
+      if (orderModalTotal) orderModalTotal.textContent = formatPrice(total);
+      if (orderConfirmBtn) orderConfirmBtn.disabled = items.length === 0;
+    };
+
+    window.updateCartSummary = updateCartSummary;
+
+    const normalizeSearch = (value) => value.toLocaleLowerCase().replace(/\s+/g, " ").trim();
+
+    const applyMenuSearch = () => {
+      if (!menuSearch) return;
+      const query = normalizeSearch(menuSearch.value || "");
+      const groups = Array.from(document.querySelectorAll(".menu-group"));
+      let totalMatches = 0;
+      groups.forEach((group) => {
+        let groupMatches = 0;
+        const categories = Array.from(group.querySelectorAll(".menu-category"));
+        categories.forEach((category) => {
+          let categoryMatches = 0;
+          const categoryTitle = getLangText(category.querySelector(".menu-category-title"));
+          category.querySelectorAll(".menu-item").forEach((item) => {
+            const name = getLangText(item.querySelector(".menu-item-name"));
+            const desc = getLangText(item.querySelector(".menu-item-desc"));
+            const note = getLangText(item.querySelector(".menu-item-note"));
+            const haystack = normalizeSearch(`${name} ${desc} ${note} ${categoryTitle}`);
+            const match = !query || haystack.includes(query);
+            item.style.display = match ? "" : "none";
+            if (match) {
+              categoryMatches += 1;
+              totalMatches += 1;
+            }
+          });
+          category.style.display = categoryMatches ? "" : "none";
+          if (categoryMatches) groupMatches += 1;
+        });
+        group.style.display = groupMatches ? "" : "none";
+      });
+      if (menuSearchEmpty) {
+        menuSearchEmpty.style.display = query && !totalMatches ? "block" : "none";
+      }
+    };
+
+    if (menuSearch) {
+      menuSearch.addEventListener("input", applyMenuSearch);
+    }
+    window.applyMenuSearch = applyMenuSearch;
+
+    const setLanguage = (lang) => {
+      const nextLang = lang === "de" ? "de" : "tr";
+      document.body.setAttribute("data-lang", nextLang);
+      document.documentElement.lang = nextLang;
+      langButtons.forEach((button) => {
+        const isActive = button.dataset.langSwitch === nextLang;
+        button.classList.toggle("is-active", isActive);
+        button.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+      document.querySelectorAll("[data-placeholder-tr]").forEach((input) => {
+        const trText = input.getAttribute("data-placeholder-tr") || "";
+        const deText = input.getAttribute("data-placeholder-de") || "";
+        input.setAttribute("placeholder", nextLang === "de" ? deText : trText);
+      });
+      updateIndicator(nav?.querySelector(".nav-link.active"));
+      if (window.updateCartSummary) window.updateCartSummary();
+      if (window.applyMenuSearch) window.applyMenuSearch();
+      try {
+        localStorage.setItem("siteLang", nextLang);
+      } catch (error) {}
+    };
+
+    const initLanguage = () => {
+      let storedLang = null;
+      try {
+        storedLang = localStorage.getItem("siteLang");
+      } catch (error) {
+        storedLang = null;
+      }
+      const initialLang = storedLang || document.documentElement.lang || "tr";
+      setLanguage(initialLang);
+      langButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          setLanguage(button.dataset.langSwitch);
+        });
+      });
+    };
+
+    const updateIndicator = (link) => {
+      if (!indicator || !link) return;
+      indicator.style.width = `${link.offsetWidth}px`;
+      indicator.style.transform = `translateX(${link.offsetLeft}px)`;
+    };
+
+    const setActiveLink = () => {
+      if (!navLinks.length) return;
+      const current = window.location.pathname.split("/").pop() || "index.html";
+      navLinks.forEach((link) => {
+        const href = link.getAttribute("href");
+        link.classList.toggle("active", href === current);
+      });
+      updateIndicator(nav.querySelector(".nav-link.active"));
+    };
+
+    const setOrderModalState = (isOpen) => {
+      if (!orderModal) return;
+      orderModal.classList.toggle("is-open", isOpen);
+      orderModal.setAttribute("aria-hidden", isOpen ? "false" : "true");
+      document.body.classList.toggle("modal-open", isOpen);
+    };
+
+    const initWhatsAppOrder = () => {
+      const form = document.querySelector(".order-modal-form");
+      if (!form) return;
+      const waNumber = form.dataset.wa || "9647764883990";
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+        if (!cart.size) return;
+        if (typeof form.reportValidity === "function" && !form.reportValidity()) return;
+        const lang = document.body.getAttribute("data-lang") || "tr";
+        const data = new FormData(form);
+        const name = String(data.get("order-name") || "").trim();
+        const phone = String(data.get("order-phone") || "").trim();
+        const address = String(data.get("order-address") || "").trim();
+        const note = String(data.get("order-note") || "").trim();
+        const labels = lang === "de"
+          ? {
+            heading: "Bestelldetails",
+            name: "Name",
+            phone: "Telefon",
+            address: "Adresse",
+            note: "Notiz",
+            total: "Gesamt"
+          }
+          : {
+            heading: "Sipari\u015F Detaylar\u0131",
+            name: "\u0130sim",
+            phone: "Telefon",
+            address: "Adres",
+            note: "Not",
+            total: "Toplam"
+          };
+        const lines = [labels.heading];
+        let total = 0;
+        cart.forEach((qty, item) => {
+          const nameText = getItemName(item);
+          const unitPrice = getItemPrice(item);
+          const lineTotal = unitPrice * qty;
+          total += lineTotal;
+          const details = getItemDetails(item);
+          const detailSuffix = details ? ` - ${details}` : "";
+          lines.push(`${qty}x ${nameText}${detailSuffix} = ${formatPrice(lineTotal)}`);
+        });
+        lines.push(`${labels.total}: ${formatPrice(total)}`);
+        const pushLine = (label, value) => {
+          if (value) lines.push(`${label}: ${value}`);
+        };
+        pushLine(labels.name, name);
+        pushLine(labels.phone, phone);
+        pushLine(labels.address, address);
+        pushLine(labels.note, note);
+        const message = encodeURIComponent(lines.join("\n"));
+        const url = `https://wa.me/${waNumber}?text=${message}`;
+        window.open(url, "_blank", "noopener");
+        setOrderModalState(false);
+      });
+    };
+
+    const initOrderModal = () => {
+      if (!orderModal || !orderConfirmBtn) return;
+      const openModal = () => {
+        if (orderConfirmBtn.disabled) return;
+        updateCartSummary();
+        setOrderModalState(true);
+      };
+      const closeModal = () => setOrderModalState(false);
+      orderConfirmBtn.addEventListener("click", openModal);
+      orderModal.addEventListener("click", (event) => {
+        const target = event.target;
+        if (!(target instanceof HTMLElement)) return;
+        if (target.closest("[data-modal-close]")) closeModal();
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && orderModal.classList.contains("is-open")) {
+          closeModal();
+        }
+      });
+    };
+
+    window.addEventListener("resize", () => {
+      updateIndicator(nav?.querySelector(".nav-link.active"));
+    });
+    window.addEventListener("load", () => {
+      setActiveLink();
+      initLanguage();
+      initWhatsAppOrder();
+      initOrderModal();
+      updateCartSummary();
+      applyMenuSearch();
+    });
+
+    const applyRevealStagger = () => {
+      document.querySelectorAll(".section-card").forEach((section) => {
+        const items = section.querySelectorAll(".reveal");
+        items.forEach((item, index) => {
+          if (!item.style.getPropertyValue("--delay")) {
+            item.style.setProperty("--delay", `${Math.min(index * 90, 420)}ms`);
+          }
+        });
+      });
+    };
+
+    applyRevealStagger();
+
+    const initMenuTabs = () => {
+      const tabs = Array.from(document.querySelectorAll(".menu-tab"));
+      if (!tabs.length) return;
+      const setActive = (hash) => {
+        const matches = tabs.some((tab) => tab.getAttribute("href") === hash);
+        const target = matches ? hash : tabs[0].getAttribute("href");
+        tabs.forEach((tab) => {
+          const isActive = tab.getAttribute("href") === target;
+          tab.classList.toggle("is-active", isActive);
+          tab.setAttribute("aria-selected", isActive ? "true" : "false");
+        });
+      };
+      tabs.forEach((tab) => {
+        tab.setAttribute("role", "tab");
+        tab.addEventListener("click", () => {
+          setActive(tab.getAttribute("href"));
+        });
+      });
+      setActive(window.location.hash);
+    };
+
+    initMenuTabs();
+
+    const injectCategoryPhotos = () => {
+      document.querySelectorAll(".menu-item-media").forEach((media) => media.remove());
+      document.querySelectorAll(".menu-category-media").forEach((media) => media.remove());
+      document.querySelectorAll(".menu-category").forEach((category) => {
+        const photo = category.dataset.photo;
+        if (!photo) return;
+        const head = category.querySelector(".menu-category-head");
+        if (!head) return;
+        const media = document.createElement("div");
+        media.className = "menu-category-media";
+        media.style.setProperty("--item-photo", `url('${photo}')`);
+        const title = category.querySelector(".menu-category-title");
+        const label = title ? title.textContent.replace(/\s+/g, " ").trim() : "Menu photo";
+        media.setAttribute("role", "img");
+        media.setAttribute("aria-label", label);
+        head.insertAdjacentElement("afterend", media);
+      });
+    };
+
+    injectCategoryPhotos();
+
+    const initMenuItemDetails = () => {
+      const toggleItem = (item, name) => {
+        const isOpen = item.classList.toggle("is-open");
+        if (name) name.setAttribute("aria-expanded", isOpen ? "true" : "false");
+      };
+      document.querySelectorAll(".menu-item").forEach((item) => {
+        const name = item.querySelector(".menu-item-name");
+        const details = item.querySelector(".menu-item-desc, .menu-item-note");
+        if (!name || !details) return;
+        const textWrap = item.querySelector(".menu-item-text");
+        if (textWrap && !item.querySelector(".menu-item-actions")) {
+          const actions = document.createElement("div");
+          actions.className = "menu-item-actions";
+          const qtyWrap = document.createElement("div");
+          qtyWrap.className = "menu-item-qty";
+          qtyWrap.innerHTML = '<span class="menu-qty-label"><span data-lang="tr">Adet</span><span data-lang="de">Anzahl</span></span><button type="button" class="menu-qty-btn" data-qty-change="-">-</button><span class="menu-qty-value">1</span><button type="button" class="menu-qty-btn" data-qty-change="+">+</button>';
+          item.dataset.qty = "1";
+          const button = document.createElement("button");
+          button.type = "button";
+          button.className = "menu-item-add";
+          button.innerHTML = '<span data-lang="tr">Sipari&#351;e Ekle</span><span data-lang="de">Zur Bestellung</span>';
+          button.addEventListener("click", (event) => {
+            event.preventDefault();
+            const qty = Math.max(1, parseInt(item.dataset.qty || "1", 10) || 1);
+            const currentQty = cart.get(item) || 0;
+            cart.set(item, currentQty + qty);
+            updateCartSummary();
+          });
+          qtyWrap.addEventListener("click", (event) => {
+            const target = event.target;
+            if (!(target instanceof HTMLElement)) return;
+            const change = target.getAttribute("data-qty-change");
+            if (!change) return;
+            const currentQty = Math.max(1, parseInt(item.dataset.qty || "1", 10) || 1);
+            const nextQty = change === "+" ? currentQty + 1 : Math.max(1, currentQty - 1);
+            item.dataset.qty = String(nextQty);
+            const valueEl = qtyWrap.querySelector(".menu-qty-value");
+            if (valueEl) valueEl.textContent = String(nextQty);
+          });
+          actions.appendChild(qtyWrap);
+          actions.appendChild(button);
+          item.appendChild(actions);
+        }
+        if (name.dataset.toggleReady === "true") return;
+        name.dataset.toggleReady = "true";
+        name.setAttribute("role", "button");
+        name.setAttribute("tabindex", "0");
+        name.setAttribute("aria-expanded", "false");
+        name.addEventListener("click", () => toggleItem(item, name));
+        name.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            toggleItem(item, name);
+          }
+        });
+        item.addEventListener("click", (event) => {
+          const target = event.target;
+          if (!(target instanceof HTMLElement)) return;
+          if (target.closest(".menu-item-actions")) return;
+          if (target.closest(".menu-item-name")) return;
+          toggleItem(item, name);
+        });
+      });
+    };
+
+    initMenuItemDetails();
+
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const menuCards = document.querySelectorAll(".menu-card");
+
+    if (filterButtons.length && menuCards.length) {
+      filterButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          filterButtons.forEach((b) => {
+            b.classList.remove("is-active");
+            b.setAttribute("aria-pressed", "false");
+          });
+          btn.classList.add("is-active");
+          btn.setAttribute("aria-pressed", "true");
+          const filter = btn.dataset.filter;
+          menuCards.forEach((card) => {
+            const match = filter === "all" || card.dataset.category === filter;
+            card.style.display = match ? "grid" : "none";
+            if (match && !prefersReducedMotion) {
+              card.animate(
+                [
+                  { opacity: 0, transform: "translateY(12px) scale(0.98)" },
+                  { opacity: 1, transform: "translateY(0) scale(1)" }
+                ],
+                { duration: 360, easing: "cubic-bezier(0.2, 0.8, 0.2, 1)", fill: "both" }
+              );
+            }
+          });
+        });
+      });
+    }
+
+    const revealItems = document.querySelectorAll(".reveal");
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-visible");
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      revealItems.forEach((item) => observer.observe(item));
+    } else {
+      revealItems.forEach((item) => item.classList.add("is-visible"));
+    }
+  </script>
+  <a class="whatsapp-float" href="https://wa.me/9647764883990" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
+    <svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="M16.6 13.2c-.2-.1-1.3-.6-1.5-.7s-.4-.1-.6.1-.7.7-.9.9-.3.2-.5.1c-.2-.1-1-.4-1.9-1.3-.7-.6-1.1-1.4-1.2-1.6-.1-.2 0-.3.1-.5.1-.1.2-.3.3-.4.1-.1.1-.3.2-.4s0-.3 0-.4c-.1-.1-.6-1.5-.8-2.1-.2-.5-.4-.5-.6-.5h-.5c-.2 0-.4 0-.6.3s-.8.8-.8 2 .8 2.4 1 2.6 1.6 2.5 3.9 3.5c2.3 1 2.3.7 2.7.7s1.3-.5 1.5-1 .2-.9.2-1c-.1-.1-.2-.2-.4-.3zM12 2.1c-5.5 0-10 4.4-10 9.9 0 1.7.4 3.3 1.2 4.7L2 22l5.5-1.4c1.4.8 3 1.2 4.6 1.2h.1c5.5 0 9.9-4.4 9.9-9.9 0-2.6-1-5.1-2.9-7-1.9-1.9-4.4-2.8-7.1-2.8zm0 17.9c-1.4 0-2.9-.4-4.1-1.1l-.3-.2-3.3.9.9-3.2-.2-.3c-.8-1.2-1.2-2.6-1.2-4.1 0-4.1 3.4-7.5 7.6-7.5 2 0 4 .8 5.4 2.2 1.4 1.4 2.2 3.3 2.1 5.4 0 4.1-3.4 7.5-7.5 7.5z" />
+    </svg>
+  </a>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
